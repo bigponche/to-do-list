@@ -17,7 +17,7 @@ def view_tasks(tasks):
     for i, task in enumerate(tasks, start=1):
         estado = '[x]' if task['completed'] else '[ ]'  
         print(f"{i}. {estado} {task['description']}") 
-    return tasks
+    
         
 def complete_task(tasks, index):
     if index-1 <= len(tasks) and index-1 >= len(tasks): 
@@ -29,3 +29,8 @@ def complete_task(tasks, index):
     if index-1 < 0 or index-1 >= len(tasks):
         raise ValueError("Type a number in the task list")
     tasks[index-1]['completed'] = True
+    
+def delete_task(tasks, index):
+    if index-1 < 0 or index-1 >= len(tasks):
+        raise ValueError("Type a number in the task list")
+    tasks.pop(index-1)
